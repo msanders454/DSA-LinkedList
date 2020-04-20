@@ -25,43 +25,33 @@ class LinkedList {
         }
     }
     find(item) {
-        //Start at the head
         let currNode = this.head;
-        //If the list is empty
         if (!this.head) {
             return null;
         }
-        //Check for the item
         while (currNode.value !== item) {
-            //Return null if it's the end of the list
-            //and the item is not on the list
+
             if (currNode.next === null) {
                 return null;
             }
             else {
-                //Otherwise keep looking
                 currNode = currNode.next;
             }
         }
-        //Found it
         return currNode;
     }
     remove(item) {
-        //if list is empty
         if (!this.head) {
             return null;
         }
-        //if node to be removed is head, make next node head
+    
         if (this.head.value === item) {
             this.head = this.head.next;
             return;
         }
-        //Start at the head
         let currNode = this.head;
-        //Keep track of previous
         let previousNode = this.head;
         while ((currNode !== null) && (currNode.value !== item)) {
-            //save the previous node
             previousNode = currNode;
             currNode = currNode.next;
         }
